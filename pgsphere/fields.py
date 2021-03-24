@@ -47,7 +47,7 @@ class SBoxField(models.Field):
             return None
         return str(value)
 
-    def from_db_value(self, value, expression, connection, context):
+    def from_db_value(self, value, expression, connection, context=None):
         if value is None:
             return value
         return parse_sbox(value, to_deg=True)
@@ -87,7 +87,7 @@ class SPointField(models.Field):
             return value
         return str(value)
 
-    def from_db_value(self, value, expression, connection, context):
+    def from_db_value(self, value, expression, connection, context=None):
         if value is None:
             return value
         return parse_spoint(value, to_deg=True)
